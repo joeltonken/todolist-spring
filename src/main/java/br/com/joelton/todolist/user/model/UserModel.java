@@ -1,4 +1,4 @@
-package br.com.joelton.todolist.task;
+package br.com.joelton.todolist.user.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -11,23 +11,18 @@ import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Data
-@Entity(name = "tb_tasks")
-public class TaskModel {
+@Entity(name = "tb_users")
+public class UserModel {
 
     @Id
     @GeneratedValue(generator = "UUID")
     private UUID id;
-    private String description;
 
-    @Column(length = 50)
-    private String title;
-    private LocalDateTime startAt;
-    private LocalDateTime endAt;
-    private String priority;
-
-    private UUID idUser;
+    @Column(name = "usuario", unique = true)
+    private String username;
+    private String name;
+    private String password;
 
     @CreationTimestamp
     private LocalDateTime createdAt;
-
 }

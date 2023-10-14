@@ -1,6 +1,8 @@
-package br.com.joelton.todolist.user;
+package br.com.joelton.todolist.user.controller;
 
 import at.favre.lib.crypto.bcrypt.BCrypt;
+import br.com.joelton.todolist.user.repository.IUserRepository;
+import br.com.joelton.todolist.user.model.UserModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

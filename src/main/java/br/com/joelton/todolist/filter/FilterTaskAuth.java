@@ -1,7 +1,7 @@
 package br.com.joelton.todolist.filter;
 
 import at.favre.lib.crypto.bcrypt.BCrypt;
-import br.com.joelton.todolist.user.IUserRepository;
+import br.com.joelton.todolist.user.repository.IUserRepository;
 import jakarta.servlet.*;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -42,6 +42,7 @@ public class FilterTaskAuth extends OncePerRequestFilter {
             } else {
                 var passwordVerify = BCrypt.verifyer().verify(password.toCharArray(), user.getPassword()); // Validar senha
                 if (passwordVerify.verified) {
+                    request.setAttribute("idUser", user.getId());
                     filterChain.doFilter(request, response);
                 } else {
                     response.sendError(401);

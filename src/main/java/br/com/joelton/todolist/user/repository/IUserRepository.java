@@ -1,5 +1,6 @@
-package br.com.joelton.todolist.user;
+package br.com.joelton.todolist.user.repository;
 
+import br.com.joelton.todolist.user.model.UserModel;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
